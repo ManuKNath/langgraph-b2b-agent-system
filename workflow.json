@@ -1,0 +1,47 @@
+{
+  "workflow_name": "B2B_LeadGen_Workflow",
+  "nodes": [
+    {
+      "id": "prospect_search",
+      "type": "ProspectSearchAgent",
+      "params": {
+        "target_region": "USA",
+        "min_revenue": 20000000,
+        "max_revenue": 200000000
+      },
+      "next": [
+        "enrichment"
+      ]
+    },
+    {
+      "id": "enrichment",
+      "type": "EnrichmentAgent",
+      "params": {},
+      "next": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring",
+      "type": "ScoringAgent",
+      "params": {},
+      "next": [
+        "outreach"
+      ]
+    },
+    {
+      "id": "outreach",
+      "type": "OutreachAgent",
+      "params": {},
+      "next": [
+        "feedback_trainer"
+      ]
+    },
+    {
+      "id": "feedback_trainer",
+      "type": "FeedbackTrainer",
+      "params": {},
+      "next": []
+    }
+  ]
+}
